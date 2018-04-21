@@ -18,3 +18,7 @@ Follow up:
 
 Coud you solve it without converting the integer to a string?
 
+---
+Time complexity: O(log10 n)
+We divided the input by 10 for every iteration, so the time complexity is O(log10n)
+Space complexity: O(1)O(1).
