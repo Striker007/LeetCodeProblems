@@ -4,23 +4,15 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        center = ""
-        word_left = ""
-        word_right = ""
-
-        repeat = 0
-        prev = ""
-
-        for letter in s:
-            if letter == prev:
-                repeat += 1
-            else:
-                if repeat > 1:
-                    word_left += (repeat//2 * prev)
-                    word_right += (repeat//2 * prev)
-                if repeat % 2 != 0:
-                    center = prev
-                prev = letter
-                repeat = 0
-
-        return len(word_left + center + word_right)
+        letters = {}
+        for l in s:
+            if l not in letters:
+                letters[l] = 0
+            letters[l] += 1
+        
+        sum = 0
+        for i in letters:
+            sum += letters[i] // 2 * 2
+            if sum % 2 == 0 and letters[i] % 2 == 1:
+                sum += 1
+        return sum
